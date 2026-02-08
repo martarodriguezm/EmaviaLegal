@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Emavia — Cycle-based goal tracking for women</title>
+  <meta name="description" content="Emavia helps women create and track goals aligned with their menstrual cycle — with Premium features like unlimited goals, sharing, notifications, and insights." />
+
+  <!-- Open Graph (replace URL + image when you publish) -->
+  <meta property="og:title" content="Emavia — Cycle-based goal tracking for women" />
+  <meta property="og:description" content="Create goals aligned with your cycle and track progress — with Premium features like unlimited goals, sharing, notifications, and insights." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/og-image.png" />
+  <meta property="og:url" content="https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO_NAME/" />
+
+  <meta name="theme-color" content="#10B981" />
+
+  <style>
+    :root{
+      --bg:#F1F3F5;          /* background */
+      --primary:#10B981;     /* primary */
+      --accent:#F59E0B;      /* accent */
+      --text:#111827;        /* textPrimary */
+      --muted: rgba(17,24,39,.68);
+      --card: rgba(255,255,255,.70);
+      --border: rgba(17,24,39,.10);
+      --shadow: 0 18px 50px rgba(17,24,39,.12);
+      --radius: 18px;
+      --radius-lg: 26px;
+      --max: 1120px;
+    }
+
+    *{ box-sizing:border-box; }
+    html, body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--text);
+      background: radial-gradient(1200px 500px at 20% -10%, rgba(16,185,129,.22), transparent 60%),
+                  radial-gradient(900px 450px at 90% 10%, rgba(245,158,11,.18), transparent 55%),
+                  var(--bg);
+      line-height:1.45;
+    }
+
+    a{ color: inherit; text-decoration:none; }
+    a:hover{ text-decoration: underline; }
+
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 24px; }
+    .nav{
+      position: sticky; top: 0;
+      backdrop-filter: blur(12px);
+      background: rgba(241,243,245,.70);
+      border-bottom: 1px solid var(--border);
+      z-index: 50;
+    }
+    .nav .inner{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 24px;
+      display:flex; align-items:center; justify-content:space-between;
+      gap: 14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap: 10px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .brand img{
+      width: 34px; height: 34px;
+      border-radius: 10px;
+      box-shadow: 0 10px 28px rgba(17,24,39,.10);
+      background: white;
+      object-fit: cover;
+    }
+    .navlinks{
+      display:flex; align-items:center; gap: 14px;
+      color: rgba(17,24,39,.82);
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .navlinks a{
+      padding: 8px 10px;
+      border-radius: 12px;
+    }
+    .navlinks a:hover{
+      background: rgba(16,185,129,.10);
+      text-decoration:none;
+    }
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 12px 16px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.72);
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: -0.01em;
+      box-shadow: 0 10px 26px rgba(17,24,39,.06);
+      transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+      cursor:pointer;
+      user-select:none;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(17,24,39,.10);
+      text-decoration:none;
+    }
+    .btn.primary{
+      background: linear-gradient(180deg, rgba(16,185,129,1), rgba(14,159,110,1));
+      color: white;
+      border-color: rgba(16,185,129,.35);
+    }
+    .btn.accent{
+      background: linear-gradient(180deg, rgba(245,158,11,1), rgba(221,135,0,1));
+      color: #111827;
+      border-color: rgba(245,158,11,.35);
+    }
+    .btn.ghost{
+      background: transparent;
+      border-color: rgba(17,24,39,.14);
+    }
+
+    .hero{
+      padding: 44px 0 28px;
+      display:grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 28px;
+      align-items:center;
+    }
+    @media (max-width: 940px){
+      .hero{ grid-template-columns: 1fr; padding-top: 28px; }
+      .navlinks{ display:none; }
+    }
+
+    .badge{
+      display:inline-flex; align-items:center; gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(16,185,129,.30);
+      background: rgba(16,185,129,.10);
+      font-weight: 800;
+      font-size: 13px;
+      width: fit-content;
+    }
+    .badge .dot{
+      width: 8px; height: 8px; border-radius: 99px;
+      background: var(--primary);
+      box-shadow: 0 0 0 6px rgba(16,185,129,.16);
+    }
+
+    h1{
+      margin: 14px 0 12px;
+      font-size: clamp(34px, 4.2vw, 54px);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+    }
+    .lead{
+      margin: 0 0 18px;
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 56ch;
+    }
+    .cta{
+      display:flex; flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+      align-items:center;
+    }
+    .subcta{
+      color: rgba(17,24,39,.62);
+      font-weight: 650;
+      font-size: 13px;
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+
+    .phone{
+      padding: 16px;
+      background:
+        radial-gradient(600px 300px at 15% 15%, rgba(16,185,129,.22), transparent 55%),
+        radial-gradient(520px 260px at 90% 25%, rgba(245,158,11,.18), transparent 55%),
+        rgba(255,255,255,.68);
+      border: 1px solid rgba(17,24,39,.10);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 18px 55px rgba(17,24,39,.14);
+    }
+    .phone .frame{
+      border-radius: 22px;
+      border: 10px solid rgba(17,24,39,.90);
+      background: rgba(17,24,39,.90);
+      overflow:hidden;
+      aspect-ratio: 9/19.5;
+      position: relative;
+    }
+    .phone .frame img{
+      width:100%; height:100%; object-fit: cover;
+      display:block;
+      background: #0b1220;
+    }
+    .phone .hint{
+      margin-top: 10px;
+      color: rgba(17,24,39,.60);
+      font-weight: 650;
+      font-size: 12.5px;
+      text-align:center;
+    }
+
+    .section{
+      padding: 26px 0;
+    }
+    .section h2{
+      margin: 0 0 10px;
+      font-size: 26px;
+      letter-spacing: -0.03em;
+    }
+    .section p{
+      margin: 0;
+      color: var(--muted);
+      max-width: 78ch;
+    }
+
+    .grid3{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    @media (max-width: 940px){
+      .grid3{ grid-template-columns: 1fr; }
+    }
+    .feature{
+      padding: 16px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.68);
+    }
+    .feature .icon{
+      width: 42px; height: 42px;
+      border-radius: 14px;
+      display:flex; align-items:center; justify-content:center;
+      font-weight: 950;
+      letter-spacing:-.02em;
+      margin-bottom: 12px;
+      background: rgba(16,185,129,.12);
+      border: 1px solid rgba(16,185,129,.25);
+      color: rgba(17,24,39,.92);
+    }
+    .feature h3{
+      margin: 0 0 6px;
+      font-size: 16px;
+      letter-spacing: -0.02em;
+    }
+    .feature p{
+      margin: 0;
+      color: rgba(17,24,39,.68);
+      font-size: 14px;
+    }
+
+    .shots{
+      margin-top: 16px;
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 940px){
+      .shots{ grid-template-columns: repeat(2, 1fr); }
+    }
+    .shot{
+      border-radius: 16px;
+      overflow:hidden;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.70);
+      aspect-ratio: 9 / 19.5;
+      box-shadow: 0 14px 35px rgba(17,24,39,.08);
+    }
+    .shot img{
+      width:100%; height:100%;
+      object-fit: cover;
+      display:block;
+      background: rgba(17,24,39,.06);
+    }
+
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 18px;
+    }
+    @media (max-width: 940px){
+      .split{ grid-template-columns: 1fr; }
+    }
+    .pricing{
+      padding: 18px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.70);
+    }
+    .pricing .tag{
+      display:inline-flex;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight: 850;
+      font-size: 12px;
+      border: 1px solid rgba(245,158,11,.28);
+      background: rgba(245,158,11,.12);
+      margin-bottom: 10px;
+    }
+    .pricing ul{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: rgba(17,24,39,.74);
+      font-weight: 600;
+    }
+    .pricing li{ margin: 8px 0; }
+
+    .footer{
+      padding: 22px 0 34px;
+      color: rgba(17,24,39,.65);
+      font-size: 13px;
+      border-top: 1px solid var(--border);
+      margin-top: 26px;
+    }
+    .footer .cols{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer a{
+      color: rgba(17,24,39,.70);
+      font-weight: 700;
+    }
+    .kicker{
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Top nav -->
+  <div class="nav">
+    <div class="inner">
+      <div class="brand">
+        <img src="assets/icon.png" alt="Emavia app icon" />
+        <span>Emavia</span>
+      </div>
+      <div class="navlinks">
+        <a href="#features">Features</a>
+        <a href="#screens">Screens</a>
+        <a href="#premium">Premium</a>
+        <a href="#beta">TestFlight</a>
+      </div>
+      <div style="display:flex; gap:10px;">
+        <!-- Replace links -->
+        <a class="btn ghost soon" href="#" aria-label="Join beta (coming soon)">Join Beta</a>
+        <a class="btn primary soon" href="#" aria-label="Download on the App Store (placeholder)">App Store</a>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div>
+        <div class="badge"><span class="dot"></span> Version 1 is ready — beta available</div>
+        <h1>Cycle-based goals.<br/>Progress that feels natural.</h1>
+        <p class="lead">
+          Emavia helps women create goals aligned with their menstrual cycle and track them over time.
+          Plan with your energy, not against it — and stay consistent without burnout.
+        </p>
+
+        <div class="cta">
+          <!-- Replace links -->
+          <a class="btn accent" href="#screens">See screenshots</a>
+          <a class="btn primary soon" href="#" aria-label="Join via TestFlight (coming soon)">Join via TestFlight</a>
+          <span class="subcta">iOS • Built for clarity, momentum, and wellbeing</span>
+        </div>
+      </div>
+
+      <!-- Phone mock (uses your first screenshot) -->
+      <div class="phone">
+        <div class="frame">
+          <!-- Replace with your best “hero” screenshot -->
+          <img src="assets/screenshot-1.png" alt="Emavia screenshot" />
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="section" id="features">
+      <h2>What you can do in Emavia</h2>
+      <p>
+        Version 1 focuses on the essentials: create cycle-aligned goals, track progress, and build momentum with an experience that stays simple.
+      </p>
+
+      <div class="grid3">
+        <div class="feature">
+          <div class="icon">◎</div>
+          <h3>Cycle-aligned goal creation</h3>
+          <p>Create goals based on your current phase, so planning matches how you actually feel.</p>
+        </div>
+
+        <div class="feature">
+          <div class="icon">↗</div>
+          <h3>Progress tracking</h3>
+          <p>Stay on top of your goals with a clean view of what’s moving forward — and what needs care.</p>
+        </div>
+
+        <div class="feature">
+          <div class="icon">⚡</div>
+          <h3>Lightweight & motivating</h3>
+          <p>No clutter. Just the right prompts to keep you consistent and confident.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREENSHOTS -->
+    <section class="section" id="screens">
+      <h2>Screenshots</h2>
+
+      <div class="shots">
+        <div class="shot"><img src="assets/screenshot-1.png" alt="Emavia screenshot 1" /></div>
+        <div class="shot"><img src="assets/screenshot-2.png" alt="Emavia screenshot 2" /></div>
+        <div class="shot"><img src="assets/screenshot-3.png" alt="Emavia screenshot 3" /></div>
+        <div class="shot"><img src="assets/screenshot-4.png" alt="Emavia screenshot 4" /></div>
+      </div>
+    </section>
+
+    <!-- PREMIUM -->
+    <section class="section" id="premium">
+      <h2>Emavia Deep is available</h2>
+      <p>
+        Premium unlocks power features for women who want to go deeper and stay supported over time.
+      </p>
+
+      <div class="split">
+        <div class="pricing">
+          <div class="tag">Free (Version 1)</div>
+          <div class="kicker" style="font-size:18px;">Core cycle-based goal tracking</div>
+          <ul>
+            <li>Create goals aligned with your cycle</li>
+            <li>Track progress over time</li>
+            <li>Clean, focused experience</li>
+          </ul>
+        </div>
+
+        <div class="pricing">
+          <div class="tag">Deep</div>
+          <div class="kicker" style="font-size:18px;">More momentum, more support</div>
+          <ul>
+            <li>Unlimited goal creation</li>
+            <li>Goal sharing</li>
+            <li>Smart notifications</li>
+            <li>Personalized insights</li>
+          </ul>
+
+          <div style="margin-top:14px;">
+            <!-- Replace link -->
+            <a class="btn primary" href="#beta">Try Premium in beta</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BETA -->
+    <section class="section" id="beta">
+      <h2>Join the TestFlight beta</h2>
+      <p>
+        Please help us validate the overall app experience — including the payment flow. Your feedback will directly shape the next releases.
+      </p>
+
+      <div class="cta" style="margin-top:14px;">
+        <!-- Replace links -->
+        <a class="btn primary soon" href="#" aria-label="TestFlight link (placeholder)">Open TestFlight</a>
+        <a class="btn ghost" href="mailto:emaviaapp@gmail.com?subject=Emavia%20Beta%20Feedback">Send feedback</a>
+      </div>
+
+      <div class="card" style="margin-top:16px; padding:16px;">
+        <div class="kicker" style="margin-bottom:6px;">What we’re testing</div>
+        <div style="color: rgba(17,24,39,.72); font-weight:650;">
+          • General app functionality<br/>
+          • Paywall + purchases (RevenueCat / App Store flow)<br/>
+          • Notifications + sharing (Premium)<br/>
+          • Insights clarity and usefulness
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="cols">
+        <div>
+          <span class="kicker">Emavia</span> · © <span id="year"></span>
+        </div>
+        <div style="display:flex; gap:12px; flex-wrap: wrap;">
+          <!-- Replace with real pages/links if you have them -->
+          <a href="https://martarodriguezm.github.io/EmaviaLegal/privacy.html" aria-label="Privacy Policy (placeholder)">Privacy</a>
+          <a href="https://martarodriguezm.github.io/EmaviaLegal/terms.html" aria-label="Terms (placeholder)">Terms</a>
+          <a href="#top">Back to top</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Small helper only
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.querySelectorAll(".soon").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        alert("Available soon");
+      });
+    });
+  </script>
+</body>
+</html>
