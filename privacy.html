@@ -218,7 +218,7 @@
     <header class="card pagehead">
       <div class="pill">Last updated</div>
       <h1>Privacy Policy — Emavia</h1>
-      <p class="updated">February 2026</p>
+      <p class="updated">November 2026</p>
     </header>
 
     <section class="card section">
@@ -227,24 +227,41 @@
         Emavia respects your privacy. This Privacy Policy explains how information is handled when you use the Emavia iOS application.
       </p>
       <div class="note">
-        <span class="accent">In short:</span> your data stays on your device. No accounts, no tracking, no selling of data.
+        <span class="accent">In short:</span> your goals and your cycle data stay on your device. No accounts, no advertising, no selling of data. We only receive anonymous usage statistics and crash reports that help us keep the app working.
       </div>
     </section>
 
     <section class="card section">
-      <h2>1. Information We Collect</h2>
-      <p>Emavia is designed to work primarily <strong>offline and on-device</strong>.</p>
-      <p>We may store the following information <strong>locally on your device</strong>:</p>
+      <h2>1. Information Stored on Your Device</h2>
+      <p>Emavia is designed to work <strong>on-device</strong>. The following information is stored <strong>locally on your device</strong>:</p>
       <ul>
         <li>Goals and goal-related data (titles, areas, progress, check-ins)</li>
-        <li>Cycle-related preferences (if enabled by the user)</li>
+        <li>Cycle information, if you enable cycle mode: the start date of your last period, your typical cycle length and your typical period length</li>
         <li>App settings (such as reminders and preferences)</li>
       </ul>
-      <p>This data is <strong>not transmitted to external servers</strong> and remains on your device.</p>
+      <p>This information is <strong>not sent to us or to any third party</strong>.</p>
+      <p>
+        If you use iCloud Backup or back up your device to a computer, your Emavia data may be included in that backup, which is managed by Apple under your Apple Account.
+      </p>
     </section>
 
     <section class="card section">
-      <h2>2. Personal Data</h2>
+      <h2>2. Apple Health</h2>
+      <p>
+        Emavia can optionally read your <strong>menstruation records</strong> from Apple Health (HealthKit). This only happens if you choose to import from Apple Health and grant permission in the system prompt.
+      </p>
+      <ul>
+        <li>Access is <strong>read-only</strong>: Emavia does not write to or change your Health data</li>
+        <li>The data is used only to estimate the start of your last period and your typical cycle and period length, so the app can show your current cycle phase</li>
+        <li>It is processed <strong>on your device</strong> and is never sent to us or to any third party</li>
+        <li>It is <strong>not</strong> used for advertising, marketing or data mining, and it is never sold</li>
+        <li>You decide how much history to share, and you can revoke access at any time in the Health app (Sharing → Apps → Emavia) or in iOS Settings</li>
+      </ul>
+      <p>You can use Emavia without Apple Health by entering your cycle details manually, or by turning cycle mode off.</p>
+    </section>
+
+    <section class="card section">
+      <h2>3. Personal Data</h2>
       <p>Emavia does <strong>not</strong> require account creation.</p>
       <p>We do <strong>not</strong> collect:</p>
       <ul>
@@ -253,13 +270,26 @@
         <li>Phone numbers</li>
         <li>Location data</li>
         <li>Contacts</li>
-        <li>Health data synced to Apple Health</li>
+        <li>Your goals, check-ins or cycle information</li>
+        <li>Your Apple Health data</li>
       </ul>
       <p>Any information you enter into the app is stored locally and is fully under your control.</p>
     </section>
 
     <section class="card section">
-      <h2>3. Notifications</h2>
+      <h2>4. Usage Statistics and Crash Reports</h2>
+      <p>To understand how the app is used and to fix problems, Emavia collects limited technical information that is <strong>not linked to your identity</strong>:</p>
+      <ul>
+        <li><strong>Usage statistics</strong> (Google Analytics for Firebase): for example, app opens and screens viewed, together with general device information such as device model, iOS version, app version, language and approximate region</li>
+        <li><strong>Crash reports</strong> (Firebase Crashlytics): technical details about a crash, such as the device model, iOS version and the part of the app that failed</li>
+      </ul>
+      <p>
+        This information never includes your goals, check-ins, cycle information or Apple Health data. It is not used for advertising and Emavia does not track you across other apps or websites.
+      </p>
+    </section>
+
+    <section class="card section">
+      <h2>5. Notifications</h2>
       <p>If you enable reminders, Emavia may send <strong>local notifications</strong> to your device.</p>
       <ul>
         <li>Notifications are generated locally on your device</li>
@@ -269,49 +299,67 @@
     </section>
 
     <section class="card section">
-      <h2>4. Payments and Subscriptions</h2>
-      <p>Emavia may offer optional paid features.</p>
+      <h2>6. Payments and Subscriptions</h2>
+      <p>Emavia offers optional paid features.</p>
       <ul>
         <li>Payments are processed securely through Apple’s App Store</li>
         <li>Emavia does not have access to your payment information</li>
         <li>Subscription management is handled by Apple</li>
+        <li>To know whether your subscription is active, Emavia uses RevenueCat, which receives your purchase history for Emavia and an anonymous identifier generated by the app. It does not receive your name, email or any data you enter into the app</li>
       </ul>
     </section>
 
     <section class="card section">
-      <h2>5. Third-Party Services</h2>
-      <p>Emavia may use third-party services to support optional features, such as:</p>
+      <h2>7. Third-Party Services</h2>
+      <p>Emavia uses the following third-party services:</p>
       <ul>
-        <li>In-app purchases and subscriptions (via Apple)</li>
-        <li>Analytics provided by Apple (App Store analytics)</li>
+        <li><strong>Apple</strong> — in-app purchases, subscriptions and App Store analytics</li>
+        <li><strong>RevenueCat</strong> — subscription status</li>
+        <li><strong>Google Firebase</strong> (Analytics and Crashlytics) — usage statistics and crash reports</li>
       </ul>
-      <p>No third-party service receives personal user data entered into the app.</p>
-    </section>
-
-    <section class="card section">
-      <h2>6. Data Retention</h2>
       <p>
-        All data stored by Emavia remains on your device until you choose to delete it or uninstall the app.
+        None of these services receives your goals, check-ins, cycle information or Apple Health data. Each provider processes the information described above under its own privacy policy.
       </p>
-      <p>Uninstalling the app will remove all locally stored data.</p>
     </section>
 
     <section class="card section">
-      <h2>7. Children’s Privacy</h2>
+      <h2>8. Data Retention and Your Choices</h2>
+      <p>
+        Data stored by Emavia remains on your device until you delete it or uninstall the app. Uninstalling the app removes all locally stored data.
+      </p>
+      <ul>
+        <li>You can turn cycle mode off at any time in the app’s settings</li>
+        <li>You can revoke Emavia’s access to Apple Health at any time</li>
+        <li>Usage statistics and crash reports are retained by the providers listed above for a limited period, according to their own policies</li>
+      </ul>
+      <p>
+        Depending on where you live, you may have rights over your personal data, such as accessing or deleting it. Because Emavia has no accounts and your content stays on your device, we usually hold nothing that identifies you, but you can contact us with any request.
+      </p>
+    </section>
+
+    <section class="card section">
+      <h2>9. Not Medical Advice</h2>
+      <p>
+        Emavia estimates cycle phases to help you plan. It is not a contraceptive method, a fertility tool or medical advice, and it should not replace professional guidance.
+      </p>
+    </section>
+
+    <section class="card section">
+      <h2>10. Children’s Privacy</h2>
       <p>Emavia is not directed to children under the age of 13.</p>
       <p>We do not knowingly collect personal information from children.</p>
     </section>
 
     <section class="card section">
-      <h2>8. Changes to This Policy</h2>
+      <h2>11. Changes to This Policy</h2>
       <p>This Privacy Policy may be updated from time to time.</p>
       <p>Any changes will be reflected on this page, with an updated “Last updated” date.</p>
     </section>
 
     <section class="card section">
-      <h2>9. Contact</h2>
+      <h2>12. Contact</h2>
       <p>If you have any questions about this Privacy Policy, you can contact us at:</p>
-      <p><strong>Email:</strong> <a href="mailto:contact@emavia.app">contact@emavia.app</a> (replace with your real contact email)</p>
+      <p><strong>Email:</strong> <a href="mailto:emaviaapp@gmail.com">emaviaapp@gmail.com</a></p>
     </section>
 
     <footer class="footer">
